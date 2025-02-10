@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fhai's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <style>
+        /* General Styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            font-family: 'Orbitron', sans-serif;
+            color: #00ffcc;
+            background: black;
+        }
+
+        /* Animated Background */
+        @keyframes animatedBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animated-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: animatedBG 10s infinite alternate;
+            z-index: -1;
+        }
+
+        /* Full-Screen Sections */
+        section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #00ffcc;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: 0.3s;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background: #00ffcc;
+            color: black;
+        }
+
+        /* Landing Page */
+        .landing {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .enter-btn {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 20px;
+            color: black;
+            background: #00ffcc;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .enter-btn:hover {
+            background: #00bfa5;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            padding: 10px 15px;
+            border: none;
+            background: #222;
+            color: #00ffcc;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Contact Icons */
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .icon:hover {
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="animated-bg"></div>
+
+    <!-- Landing Page -->
+    <section class="landing">
+        <h1>Hello! I'm Fhai.</h1>
+        <h3>A glimpse into my website.</h3>
+        <button class="enter-btn" onclick="enterSite()">Enter</button>
+    </section>
+
+    <!-- Navigation (Hidden initially) -->
+    <nav id="navbar" style="display: none;">
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Me Section -->
+    <section id="about" style="display: none;">
+        <h1>Mohamad Fhairodz Ebrahim</h1>
+        <h3>Civil Engineering Student</h3>
+        <h2>About Me</h2>
+        <p>I'm an 18-year-old engineering student currently navigating the challenges of my course. Engineering is tough, and I often struggle, but I'm learning to cope and push through every challenge.</p>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" style="display: none;">
+        <h2>Education</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('elementary')">Elementary</button>
+            <button class="tab-btn" onclick="showTab('junior-senior')">Junior/Senior High</button>
+            <button class="tab-btn" onclick="showTab('college')">College</button>
+        </div>
+        <div id="elementary" class="tab-content active">
+            <p><strong>Sharif Awliya Academy</strong></p>
+            <p>Upper Capiton, DOS, Maguindanao</p>
+        </div>
+        <div id="junior-senior" class="tab-content">
+            <p><strong>Cotabato State University - University Laboratory School</strong></p>
+            <p>Sinsuat Avenue</p>
+        </div>
+        <div id="college" class="tab-content">
+            <p><strong>Cotabato State University</strong></p>
+            <p>Sinsuat Avenue</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" style="display: none;">
+        <h2>Skills</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('problem-solver')">Problem Solver</button>
+            <button class="tab-btn" onclick="showTab('resourceful')">Resourceful</button>
+            <button class="tab-btn" onclick="showTab('active')">Active</button>
+        </div>
+        <div id="problem-solver" class="tab-content active">
+            <p>I enjoy tackling complex challenges and finding innovative solutions.</p>
+        </div>
+        <div id="resourceful" class="tab-content">
+            <p>I make the most out of available resources to get tasks done efficiently.</p>
+        </div>
+        <div id="active" class="tab-content">
+            <p>I stay engaged, proactive, and eager to take on new challenges.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="display: none;">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:MohamadFhairodz@gmail.com">MohamadFhairodz@gmail.com</a></p>
+    </section>
+
+    <script>
+        function enterSite() {
+            document.querySelector(".landing").style.display = "none";
+            document.getElementById("navbar").style.display = "block";
+            document.querySelectorAll("section:not(.landing)").forEach(section => section.style.display = "flex");
+        }
+
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
